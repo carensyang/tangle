@@ -39,7 +39,7 @@ class Reactor
                 $task = $this->squeue->heappop();
                 call_user_func_array($task->func, $task->args);
             }
-            usleep(1000000);
+            usleep(10000);
         }
     }
 }
