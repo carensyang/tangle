@@ -37,7 +37,7 @@ class Reactor
             }
             while($this->squeue->first() && $this->squeue->first()->runtime <= time()){
                 $task = $this->squeue->heappop();
-                call_user_func($task->func, $task->args);
+                call_user_func_array($task->func, $task->args);
             }
             usleep(1000000);
         }
