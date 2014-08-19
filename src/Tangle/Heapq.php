@@ -5,13 +5,23 @@ namespace Tangle;
 class Heapq
 {
     public $heap;
-    public function __construct(array $seq)
+    public function __construct(array $seq = array())
     {
         $this->heap = array();
         foreach($seq as $v) {
             $this->heappush($v);
         }
     }
+
+    public function first()
+    {
+        if(count($this->heap) > 0) {
+            return $this->heap[0];
+        } else {
+            return false;
+        }
+    }
+
     public function heappush($item)
     {
         array_push($this->heap, $item);
@@ -66,9 +76,10 @@ class Heapq
 }
 #$seq = array(3, 7, 2, 3, 1, 6);
 #$hq = new Heapq($seq);
+#echo $hq->first();
 #echo $hq->heappop();
 #echo $hq->heappop();
-#echo $hq->heappop();
+#echo $hq->first();
 #echo $hq->heappop();
 #echo $hq->heappush(1);
 #echo $hq->heappop();
