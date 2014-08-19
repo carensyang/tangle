@@ -1,0 +1,14 @@
+{
+    "name": "kyon/tangle",
+    "description": "an Asynchronous programming framework",
+    "require": {
+        "monolog/monolog": "*"
+    },
+    "authors": [
+        {
+            "name": "carensyang",
+            "email": "carensyang@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
