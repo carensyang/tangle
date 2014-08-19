@@ -10,7 +10,7 @@
             "email": "carensyang@gmail.com"
         }
     ],
-    "minimum-stability": "stable",
+    "minimum-stability": "1.0.0",
     "autoload": {
         "psr-0": {"Tangle" : "src/"}
     }
