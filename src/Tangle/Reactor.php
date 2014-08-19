@@ -1,6 +1,6 @@
 <?php
 
-namespace Tangle
+namespace Tangle;
 
 class Reactor
 {
