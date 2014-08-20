@@ -47,6 +47,7 @@ class Reactor
 #    var_dump($v);
 #};
 #
+#include("Heapq.php");
 #$reactor = new Reactor();
 #$reactor->add(1, $printsome, array(2));
 #$reactor->add(4, function($i){print 32;}, array(2));
