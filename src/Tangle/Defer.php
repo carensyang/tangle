@@ -106,7 +106,7 @@ class DeferList
 #    $unp = function() use ($deferred) {
 #        $deferred->unpause();
 #    };
-#    $reactor->add(5, $unp);
+#    $reactor->callLater(5, $unp);
 #    return $a - $b;
 #};
 #
@@ -125,5 +125,5 @@ class DeferList
 #$callback = function($v) use ($deferred) {
 #    return $deferred->callback($v);
 #};
-#$reactor->add(1, $callback, array(2));
+#$reactor->callLater(1, $callback, array(2));
 #$reactor->loop();

@@ -3,6 +3,7 @@
 namespace Tangle;
 
 use Tangle\Heapq;
+use Tangle\Event;
 
 class TaskCall
 {
@@ -16,13 +17,16 @@ class TaskCall
 
 class Reactor
 {
+    public $event;
+
     public function __construct()
     {
+        $this->event = new Event();
         $this->squeue = new Heapq();
         $this->newtasks = array();
     }
 
-    public function add($second, $func, $args = array())
+    public function callLater($second, $func, $args = array())
     {
         $runtime = time() + $second;
         $task = new TaskCall($runtime, $func, $args);
@@ -39,16 +43,26 @@ class Reactor
                 $task = $this->squeue->heappop();
                 call_user_func_array($task->func, $task->args);
             }
+            // event loop
+            $this->event->eventLoop();
             usleep(10000);
         }
     }
 }
+
 #$printsome = function($v) {
 #    var_dump($v);
 #};
 #
+#$callback = function ($fd, $events, $arg)
+#{
+#    echo  fgets($fd);
+#};
+#
 #include("Heapq.php");
+#include("Event.php");
 #$reactor = new Reactor();
-#$reactor->add(1, $printsome, array(2));
-#$reactor->add(4, function($i){print 32;}, array(2));
+#$reactor->callLater(5, $printsome, array(2));
+#$reactor->event->createEvent(STDIN, EV_READ | EV_PERSIST, $callback);
+#$reactor->callLater(10, function($i){print 32;}, array(2));
 #$reactor->loop();
