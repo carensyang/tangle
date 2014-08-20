@@ -12,5 +12,6 @@
     ],
     "autoload": {
         "psr-0": {"Tangle" : "src/"}
-    }
+    },
+    "version" : "1.0.0"
 }
